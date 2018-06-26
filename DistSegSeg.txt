@@ -1,0 +1,19 @@
+//لايجب أن يتقاطعا
+//provided they do not cross each other
+//à condition qu'ils ne se croisent pas
+
+function DistSegSeg(A,B,C,D:tpoint;out P,PP:tpoint):real;
+var Dist,Min:real;PPP:TPoint;
+begin
+Min:=DistSeg(A,C,D,PPP);
+P:=A;PP:=PPP;
+Dist:=distseg(B,C,D,PPP);
+if Dist<Min then begin Min:=Dist;P:=B;PP:=PPP;end;
+Dist:=distseg(C,A,B,PPP);
+if Dist<Min then begin Min:=Dist;P:=C;PP:=PPP;end;
+Dist:=distseg(D,A,B,PPP);
+if Dist<Min then begin Min:=Dist;P:=D;PP:=PPP;end;
+DistSegSeg:=Min;
+end;
+
+//for DistSegSeg see the concerned repository
